@@ -5,8 +5,6 @@ import se.lexicon.model.Chocolate;
 import se.lexicon.model.Drink;
 import se.lexicon.model.Fruit;
 import se.lexicon.model.Product;
-
-import java.util.Arrays;
 import java.util.Scanner;
 
 //********************* THE VENDING MACHINE *********************\\
@@ -45,26 +43,26 @@ public class UserInterface
             System.out.print("Make a choice: ");
             int fromUser = scanner.nextInt();
             switch (fromUser){
-                case 1 :
+                case 1 : // addCurrency
                     System.out.print("How much money do you want to insert? ");
                     int moneyInsert = scanner.nextInt();
                     vm.addCurrency(moneyInsert);
                     break;
-                case 2 :
+                case 2 : // getBalance
                     System.out.println("There is " + vm.getBalance() + " SEK in the Moneypool");
                     break;
-                case 3 :
+                case 3 : // request
                     System.out.print("Please enter productnumber: ");
                     int productNumber = scanner.nextInt();
                     Product theOne = vm.request(productNumber);
                     System.out.println(theOne.toString());
                     System.out.println(theOne.use());
                     break;
-                case 4 :
+                case 4 : // endSession
                     System.out.println("Thanks for your purchase, you get " + vm.endSession() + " SEK" +
                             "  back in change.");
                     break;
-                case 5 :
+                case 5 : // getProducts
                     String[] strArray = vm.getProducts();
                     System.out.println("\n********************* THE VENDING MACHINE MENY *********************");
                     for(int i = 0; i < vm.products.length; i++){
@@ -72,16 +70,16 @@ public class UserInterface
                     }
                     System.out.println();
                     break;
-                case 6 :
+                case 6 : // getDescription
                     System.out.print("Please enter productnumber: ");
                     int prodNumber = scanner.nextInt();
                     System.out.println(vm.getDescription(prodNumber));
                     break;
-                case 7 :
+                case 7 : // go home
                     System.out.println("*** Welcome back ***");
                     on = false;
                     break;
-                default:
+                default: // wrong input
                     System.out.println("\nYour choice must be a number between 1 and 6.\n");
             }
         }
